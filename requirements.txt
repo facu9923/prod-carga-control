@@ -1,0 +1,16 @@
+google-auth>=2.20.0
+google-auth-oauthlib>=1.0.0
+google-auth-httplib2>=0.1.0
+google-api-python-client>=2.100.0
+boto3>=1.28.0
+PyMuPDF>=1.22.5
+unidecode>=1.3.6
+pg8000>=1.29.0
+
+# Dependencias de Django
+Django>=4.2.0,<5.0.0  # Django principal
+djangorestframework>=3.14.0  # Opcional, si usas API REST
+psycopg2>=2.9.0  # Para conectarte con PostgreSQL si usas `django.db.connection`
+
+# Dependencias específicas del proyecto
+django-crispy-forms>=2.0.0  # Si usas formularios personalizados como UserCreationForm
