@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<div class="center-table-container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Número de Remito</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Conductor</th>
+        <th>Patente</th>
+        <th>PDF</th>
+        <th>Agregar a</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for remit in remitos %}
+      <tr>
+        <td>{{ remit.date }}</td>
+        <td>{{ remit.nro_remmit }}</td>
+        <td>{{ remit.type }}</td>
+        <td>{{ remit.quantity }}</td>
+        <td>{{ remit.name_driver }}</td>
+        <td>{{ remit.truck_patent }}</td>
+        <td> <a href="{{ remit.url }}">pdf</a></td>
+        <td>
+          <a
+            class="btn btn-primary btn-sm"
+            href="/select_owner?nro_remmit={{ remit.nro_remmit }}"
+          >
+            Agregar
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

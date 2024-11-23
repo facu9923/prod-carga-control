@@ -1,0 +1,129 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centered Table</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <!-- Enlace al archivo CSS externo -->
+  </head>
+  <body>
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <!-- Columna izquierda: Filtro -->
+        <div class="col-lg-3 col-md-4">
+          <div class="card p-4">
+            <form method="GET" action="" class="row g-3">
+              <input type="hidden" name="id" value="{{ request.GET.id }}" />
+              <!-- Mantener el ID -->
+
+              <div class="col-12">
+                <label for="start_date" class="form-label">Desde:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="start_date"
+                  name="start_date"
+                  value="{{ start_date }}"
+                />
+              </div>
+              <div class="col-12">
+                <label for="end_date" class="form-label">Hasta:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="end_date"
+                  name="end_date"
+                  value="{{ end_date }}"
+                />
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary mt-3">
+                  Filtrar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Columna central: Tabla resumen -->
+        <div
+          class="col-lg-6 col-md-8 d-flex justify-content-center align-items-center"
+        >
+          {% if remitos %}
+          <div>
+            <!-- Texto de balance total -->
+            <div class="text-center mb-3">
+              <h4>El balance total de "{{ name }}" es:</h4>
+            </div>
+            
+            <!-- Tabla de total de litros -->
+            <table class="table table-striped text-center w-auto">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>Total de Diesel</th>
+                  <th>Total de Infinia</th>
+                  <th>Total de productos extra</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ dieselQuantity }}</td>
+                  <td>{{ infiniaQuantity }}</td>
+                  <td>{{ extraQuantity }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Tabla principal -->
+      {% if remitos %}
+      <div class="center-table-container mt-4">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Número de Remito</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Conductor</th>
+              <th>Patente</th>
+              <th>PDF</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for remit in remitos %}
+            <tr>
+              <td>{{ remit.date }}</td>
+              <td>{{ remit.nro_remmit }}</td>
+              <td>{{ remit.type }}</td>
+              <td>{{ remit.quantity }}</td>
+              <td>{{ remit.name_driver }}</td>
+              <td>{{ remit.truck_patent }}</td>
+              <td><a href="{{ remit.url }}">pdf</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="card-body text-center mt-4">
+        <label for="" class="label-custom">No se encontraron remitos</label>
+      </div>
+      {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+{% endblock %}

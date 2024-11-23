@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %} {% block content %} {% if carriers %}
+<table class="table table-striped table-hover table-white">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Patentes</th>
+      <th>Balance</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for carrier in carriers %}
+    <tr>
+      <td scope="row">{{ carrier.name }}</td>
+      <td>
+        <a href="/patents?id={{ carrier.id_owner }}" class="btn btn-secondary"
+          >Ver patentes</a
+        >
+      </td>
+      <td>
+        <a href="/balance?id={{ carrier.id_owner }}" class="btn btn-secondary"
+          >Ver balance</a
+        >
+      </td>
+      <td>
+        <a
+          class="btn btn-secondary d-inline"
+          href="/edit_carrier?id={{ carrier.id_owner }}"
+          role="button"
+          >Editar</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No se encontraron resultados para "{{ query }}".</p>
+{% endif %} {% endblock %}

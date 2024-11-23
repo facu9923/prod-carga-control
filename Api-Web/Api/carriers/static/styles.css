@@ -1,0 +1,66 @@
+/* Aumenta el tamaño del logotipo o nombre del sitio */
+.navbar-brand {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Estilo de hover en los enlaces */
+.nav-link {
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #b3b3b3 !important; /* Cambia el color de hover */
+}
+
+/* Bordes redondeados y estilo para el botón de búsqueda */
+.btn-outline-light {
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Fondo elegante y limpio */
+
+/* Sombra y borde suave para la tarjeta */
+
+/* Sombra adicional para darle profundidad */
+.card.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los botones */
+.btn {
+  border-radius: 25px; /* Bordes redondeados */
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+/* Efecto de hover para los botones */
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* Estilos para la etiqueta */
+.label-custom {
+  font-size: 1.2rem; /* Tamaño de fuente ligeramente mayor */
+  font-weight: bold; /* Negrita para resaltar */
+  color: #333; /* Color de texto oscuro */
+  display: block; /* Asegura que la etiqueta ocupe toda la línea */
+  margin-bottom: 0.5rem; /* Espaciado entre la etiqueta y el campo */
+  text-transform: uppercase; /* Hace que el texto sea en mayúsculas */
+  letter-spacing: 1px; /* Espaciado entre las letras para darle un toque moderno */
+}

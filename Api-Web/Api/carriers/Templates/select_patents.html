@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<br />
+<div class="container text-center">
+  <h3 class="mb-4">
+    Elige la nueva patente a la que le pertenezca el remito nro {{ nro_remmit }}
+    con la patente : {{ patent }}
+  </h3>
+  <div class="list-group d-inline-block">
+    {% for p in patents %}
+    <a
+      href="/add_remmit?nro_remmit={{ nro_remmit }}&owner_id={{ owner_id }}&patent={{ p.patent }}"
+      class="list-group-item list-group-item-action mb-2"
+      style="width: 600px"
+      >{{ p.patent }}
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

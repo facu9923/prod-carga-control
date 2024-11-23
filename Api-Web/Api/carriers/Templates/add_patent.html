@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="card shadow-sm">
+        <div class="card-body text-center"> <!-- Añadido class 'text-center' -->
+        <form method="post" action="/insert_patent">
+            {% csrf_token %} {{ form.as_p }}
+            <div class="form-group">
+                <input type="hidden"
+                  class="form-control" name="id" id="id" value="{{ id }}" aria-describedby="helpId" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="" class="label-custom">patente</label>
+                
+                <input type="text"
+                  class="form-control" name="patent" id="patent" aria-describedby="helpId" placeholder="Ingrese la aptente">
+            </div>
+            <button type="submit" class="btn btn-success">Agregar patente</button>
+            <a name="" id="" class="btn btn-primary" href="/" role="button">Cancelar</a>
+        </form>
+        
+    </div>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock %}

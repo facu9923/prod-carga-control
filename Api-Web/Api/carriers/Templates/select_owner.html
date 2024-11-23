@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<br />
+<div class="container text-center">
+  <h3 class="mb-4">Elige al dueño al que le pertenezca el remito</h3>
+  <div class="list-group d-inline-block">
+    {% for owner in owners %}
+    <a
+      href="/select_patent?nro_remmit={{ nro_remmit }}&owner_id={{ owner.id_owner }}"
+      class="list-group-item list-group-item-action mb-2"
+      style="width: 600px"
+      >{{ owner.name }}
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
